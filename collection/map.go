@@ -1,8 +1,8 @@
 package collection
 
 import (
-	"qq-server/util/number"
-	"qq-server/util/str"
+	"go-util/number"
+	"go-util/str"
 )
 
 type Map map[string]any

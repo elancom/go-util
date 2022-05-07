@@ -1,8 +1,6 @@
 package msg
 
-import (
-	"qq-server/util/collection"
-)
+import "go-util/collection"
 
 type Msg struct {
 	Code int    `json:"code"`
