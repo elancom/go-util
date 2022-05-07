@@ -1,8 +1,8 @@
 package collection
 
 import (
-	"go-util/number"
-	"go-util/str"
+	"github.com/elancom/go-util/number"
+	"github.com/elancom/go-util/str"
 )
 
 type Map map[string]any

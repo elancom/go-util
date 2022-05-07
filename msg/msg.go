@@ -1,6 +1,6 @@
 package msg
 
-import "go-util/collection"
+import "github.com/elancom/go-util/collection"
 
 type Msg struct {
 	Code int    `json:"code"`
