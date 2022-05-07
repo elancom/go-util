@@ -12,5 +12,4 @@ func TestMap_Int(t *testing.T) {
 	newMap1["0"] = "111"
 	fmt.Println(newMap1)
 	fmt.Println(newMap2["0"])
-	//fmt.Println(newMap1 == newMap2)
 }
