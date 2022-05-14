@@ -61,3 +61,11 @@ func EqualFold(a, b string) bool {
 func Index(s, substr string) int {
 	return strings.Index(s, substr)
 }
+
+func HasPrefix(s, prefix string) bool {
+	return strings.HasPrefix(s, prefix)
+}
+
+func HasSuffix(s, suffix string) bool {
+	return strings.HasSuffix(s, suffix)
+}
