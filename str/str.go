@@ -69,3 +69,7 @@ func HasPrefix(s, prefix string) bool {
 func HasSuffix(s, suffix string) bool {
 	return strings.HasSuffix(s, suffix)
 }
+
+func Split(s, sep string) []string {
+	return strings.Split(s, sep)
+}
