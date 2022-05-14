@@ -73,3 +73,7 @@ func HasSuffix(s, suffix string) bool {
 func Split(s, sep string) []string {
 	return strings.Split(s, sep)
 }
+
+func Join(elems []string, sep string) string {
+	return strings.Join(elems, sep)
+}
