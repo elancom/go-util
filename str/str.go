@@ -15,20 +15,26 @@ func String(v any) string {
 	case uint, uint8, uint16, uint32, uint64:
 		return strconv.Itoa(int(reflect.ValueOf(v).Int()))
 	case float32, float64:
-		return strconv.Itoa(int(reflect.ValueOf(v).Int()))
+		// ‘b’ (-ddddp±ddd，二进制指数)
+		// ‘e’ (-d.dddde±dd，十进制指数)
+		// ‘E’ (-d.ddddE±dd，十进制指数)
+		// ‘f’ (-ddd.dddd，没有指数)
+		// ‘g’ (‘e’:大指数，‘f’:其它情况)
+		// ‘G’ (‘E’:大指数，‘f’:其它情况)
+		return strconv.FormatFloat(reflect.ValueOf(v).Float(), 'g', 6, 64)
 	default:
 		return ""
 	}
 }
 
-func StringEx(v any) string {
-	switch v.(type) {
-	case string:
-		return v.(string)
-	default:
-		return reflect.ValueOf(v).String()
-	}
-}
+//func StringEx(v any) string {
+//	switch v.(type) {
+//	case string:
+//		return v.(string)
+//	default:
+//		return reflect.ValueOf(v).String()
+//	}
+//}
 
 func IsBlank(s string) bool {
 	return len(strings.Trim(s, "")) == 0

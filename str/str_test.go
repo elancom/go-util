@@ -6,6 +6,5 @@ import (
 )
 
 func TestName(t *testing.T) {
-	fmt.Println(String(123))
-	fmt.Println(StringEx(123))
+	fmt.Println(String(123.12))
 }
