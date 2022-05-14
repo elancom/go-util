@@ -38,9 +38,9 @@ func IsNotBlank(s string) bool {
 	return !IsBlank(s)
 }
 
-func ToString[T int | int64 | uint64](i T) string {
-	return strconv.FormatInt(int64(i), 10)
-}
+//func ToString[T int | int64 | uint64](i T) string {
+//	return strconv.FormatInt(int64(i), 10)
+//}
 
 func ToLower(s string) string {
 	return strings.ToLower(s)
