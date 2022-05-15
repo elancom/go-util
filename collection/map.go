@@ -18,7 +18,3 @@ func (m Map) Int(key string, def int) int {
 func (m Map) String(key string) string {
 	return str.String(m[key])
 }
-
-func (m Map) StringEx(key string) string {
-	return str.StringEx(m[key])
-}

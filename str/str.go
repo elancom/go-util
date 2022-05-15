@@ -27,15 +27,6 @@ func String(v any) string {
 	}
 }
 
-//func StringEx(v any) string {
-//	switch v.(type) {
-//	case string:
-//		return v.(string)
-//	default:
-//		return reflect.ValueOf(v).String()
-//	}
-//}
-
 func IsBlank(s string) bool {
 	return len(strings.Trim(s, "")) == 0
 }
