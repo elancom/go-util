@@ -45,6 +45,10 @@ func RandomStr(num int) string {
 	return random(numLetters, num)
 }
 
+func RandomSpec(spec string, num int) string {
+	return random(spec, num)
+}
+
 func random(s string, num int) string {
 	rb := make([]byte, num)
 	sLen := len(s)

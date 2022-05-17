@@ -6,6 +6,13 @@ import (
 	"testing"
 )
 
+func TestSpec(t *testing.T) {
+	fmt.Println(RandomSpec("123456", 3))
+	fmt.Println(RandomSpec("123456", 3))
+	fmt.Println(RandomSpec("123456", 3))
+	fmt.Println(RandomSpec("123456", 3))
+}
+
 func RandLow(n int) []byte {
 	if n <= 0 {
 		return []byte{}
