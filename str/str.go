@@ -74,3 +74,11 @@ func Split(s, sep string) []string {
 func Join(elems []string, sep string) string {
 	return strings.Join(elems, sep)
 }
+
+func Trim(s string) string {
+	return Trims(s, "")
+}
+
+func Trims(s string, cs string) string {
+	return strings.Trim(s, cs)
+}
