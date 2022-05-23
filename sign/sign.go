@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func sign(key string, data map[string]string) string {
+func Sign(key string, data map[string]string) string {
 	data = collection.Clone(data)
 
 	// 移除关键字
@@ -50,12 +50,12 @@ func sign(key string, data map[string]string) string {
 	return str.ToUpper(sum16)
 }
 
-func check(key string, data map[string]string, signs ...string) bool {
+func Check(key string, data map[string]string, signs ...string) bool {
 	var signStr string
 	if len(signs) == 0 {
 		signStr = data["sign"]
 	} else {
 		signStr = signs[0]
 	}
-	return signStr != "" && signStr == sign(key, data)
+	return signStr != "" && signStr == Sign(key, data)
 }
