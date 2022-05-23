@@ -1,16 +1,16 @@
 package collection
 
-func Clone[K string | int, V any](m map[K]V) map[K]V {
-	nm := make(map[K]V, len(m))
-	for k, v := range m {
-		nm[k] = v
+func Clone[K string | int, V any](d map[K]V) map[K]V {
+	nd := make(map[K]V, len(d))
+	for k, v := range d {
+		nd[k] = v
 	}
-	return nm
+	return nd
 }
 
-func Keys[K string | int, V any](m map[K]V) []K {
-	keys := make([]K, 0, len(m))
-	for k := range m {
+func Keys[K string | int, V any](d map[K]V) []K {
+	keys := make([]K, 0, len(d))
+	for k := range d {
 		keys = append(keys, k)
 	}
 	return keys

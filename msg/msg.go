@@ -1,6 +1,9 @@
 package msg
 
-import "github.com/elancom/go-util/collection"
+import (
+	"github.com/elancom/go-util/number"
+	"github.com/elancom/go-util/str"
+)
 
 type Msg struct {
 	Code int    `json:"code"`
@@ -28,11 +31,10 @@ func NewMsg(code int, msg string, data ...any) *Msg {
 	return &Msg{Code: code, Msg: msg, Data: d}
 }
 
-func NewFrom(m map[string]any) *Msg {
-	mp := collection.Params(m)
-	code := mp.Int("code", 0)
-	msg0 := mp.String("msg")
-	data := mp["data"]
+func NewFrom(d map[string]any) *Msg {
+	code := number.ToInt(d["code"], 0)
+	msg0 := str.String(d["msg"])
+	data := d["data"]
 	return NewMsg(code, msg0, data)
 }
 
