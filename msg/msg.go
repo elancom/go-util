@@ -11,6 +11,10 @@ type Msg struct {
 	Data any    `json:"data,omitempty"`
 }
 
+func (m *Msg) Error() string {
+	return m.Msg
+}
+
 func NewOk(data ...any) *Msg {
 	d := any(nil)
 	if len(data) > 0 {
