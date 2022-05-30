@@ -5,6 +5,9 @@ import (
 	"github.com/elancom/go-util/str"
 )
 
+const OK = 200
+const Err = 400
+
 type Msg struct {
 	Code int    `json:"code"`
 	Msg  string `json:"msg,omitempty"`
