@@ -10,7 +10,7 @@ func TestI(t *testing.T) {
 	i, _ := strconv.Atoi("123456789012345678")
 	fmt.Println(i)
 
-	m := make(map[string]any)
+	m := make(map[string]string)
 	m["age"] = "100a00"
 	p := NewParams(m)
 	fmt.Println(p.Int64L("age"))
