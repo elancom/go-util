@@ -1,13 +1,9 @@
-package msg
-
-import (
-	"github.com/elancom/go-util/number"
-	"github.com/elancom/go-util/str"
-)
+package lang
 
 const OK = 200
 const Err = 400
 
+// Msg 一等结构，安全输出
 type Msg struct {
 	Code int    `json:"code"`
 	Msg  string `json:"msg,omitempty"`
@@ -39,8 +35,8 @@ func NewMsg(code int, msg string, data ...any) *Msg {
 }
 
 func NewFrom(d map[string]any) *Msg {
-	code := number.ToInt(d["code"], 0)
-	msg0 := str.String(d["msg"])
+	code := d["code"].(int)
+	msg0 := d["msg"].(string)
 	data := d["data"]
 	return NewMsg(code, msg0, data)
 }
