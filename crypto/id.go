@@ -13,7 +13,7 @@ func NewUUID() string {
 }
 
 func NewId32() string {
-	return md6(str.String(time.Now().UnixNano()) + NewUUID() + rand.RandomStr(32))
+	return Md6(str.String(time.Now().UnixNano()) + NewUUID() + rand.RandomStr(32))
 }
 
 func NewId64() string {
