@@ -82,3 +82,14 @@ func Trim(s string) string {
 func Trims(s string, cs string) string {
 	return strings.Trim(s, cs)
 }
+
+func Repeat(s string, count int) string {
+	return strings.Repeat(s, count)
+}
+
+// Replace
+// old 如果为空则每隔1个字符串插入new字符串
+// n 替换多次
+func Replace(s, old, new string, n int) string {
+	return strings.Replace(s, old, new, n)
+}

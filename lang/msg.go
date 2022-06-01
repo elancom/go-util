@@ -41,10 +41,10 @@ func NewFrom(d map[string]any) *Msg {
 	return NewMsg(code, msg0, data)
 }
 
-func (m Msg) IsOk() bool {
+func (m *Msg) IsOk() bool {
 	return m.Code == 200
 }
 
-func (m Msg) IsErr() bool {
+func (m *Msg) IsErr() bool {
 	return !m.IsOk()
 }
