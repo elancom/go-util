@@ -66,12 +66,11 @@ func PKCS5Padding(ciphertext []byte, blockSize int) []byte {
 
 func PKCS5UnPadding(origData []byte) ([]byte, error) {
 	length := len(origData)
-	unpadding := int(origData[length-1])
-
-	if length < unpadding {
+	unPadding := int(origData[length-1])
+	if length < unPadding {
 		return nil, fmt.Errorf("invalid unpadding length")
 	}
-	return origData[:(length - unpadding)], nil
+	return origData[:(length - unPadding)], nil
 }
 
 func validKey(key []byte) bool {

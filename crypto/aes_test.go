@@ -29,7 +29,13 @@ func TestName2(t *testing.T) {
 		"key":       rand.RandomStr(16),
 		"timestamp": time.Now().UnixMilli(),
 	}
+
+	// rune (characters in Go are represented using `rune` data type)
 	marshal, _ := json.Marshal(&user)
+	marshal = []byte("{\"timestamp\":\"100000\",\"random\":\"100000\"}")
+	bytes = []byte{49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	b := byte(int(' '))
+	bytes = []byte{49, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b}
 	encrypt, err := ECBEncrypt(marshal, bytes)
 	if err != nil {
 		log.Fatal(err)
@@ -37,4 +43,21 @@ func TestName2(t *testing.T) {
 	fmt.Println(base64.StdEncoding.EncodeToString(encrypt))
 	decrypt, _ := ECBDecrypt(encrypt, bytes)
 	fmt.Println(string(decrypt))
+}
+
+func TestName3(t *testing.T) {
+	d := "4ZP31mjs8Gk+7DrhAXp9LELpeHjmpIt+Jqpm+6K9AGXOxZ/CAtbhalKQGphVdsqbc2mgrGWVwGzxPlz7vCiAB6jIV8RBEIbkv6QG0B5b8VE="
+	decodeString, err2 := base64.StdEncoding.DecodeString(d)
+	if err2 != nil {
+		t.Error(err2)
+	}
+	for i := 0; i < 100; i++ {
+		key := Md6("login-password-key:1:11" + rand.RandomStr(10))
+		decrypt, _ := ECBDecrypt(decodeString, []byte(key))
+		log.Println(string(decrypt))
+	}
+}
+
+func TestName4(t *testing.T) {
+
 }
