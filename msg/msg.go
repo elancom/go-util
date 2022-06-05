@@ -7,16 +7,14 @@ import "github.com/elancom/go-util/lang"
 const OK = lang.OK
 const Err = lang.Err
 
-type Msg = lang.Msg
-
-func NewErr(msg string) *Msg {
+func NewErr(msg string) *lang.Msg {
 	return lang.NewErr(msg)
 }
 
-func NewOk(data ...any) *Msg {
+func NewOk(data ...any) *lang.Msg {
 	return lang.NewOk(data...)
 }
 
-func NewMsg(code int, msg string, data ...any) *Msg {
+func NewMsg(code int, msg string, data ...any) *lang.Msg {
 	return lang.NewMsg(code, msg, data...)
 }

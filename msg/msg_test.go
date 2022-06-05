@@ -15,7 +15,7 @@ func TestName(t *testing.T) {
 	log.Println(msg.Code)
 
 	switch ok.(type) {
-	case *Msg:
+	case *lang.Msg:
 		log.Println("..................")
 	}
 
