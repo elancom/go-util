@@ -15,7 +15,7 @@ func Test(t *testing.T) {
 }
 
 func TestMapOne(t *testing.T) {
-	one := FindMapS2s([]string{"1", "2"}, func(p string) string {
+	one := FindMapS2s([]string{"1", "2"}, func(_ int, p string) string {
 		if p == "1" {
 			return ""
 		}
