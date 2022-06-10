@@ -15,6 +15,14 @@ type Params struct {
 	src map[string]string
 }
 
+func (p *Params) Get(key string, def ...string) string {
+	s := p.src[key]
+	if s == "" && len(def) > 0 {
+		return def[0]
+	}
+	return s
+}
+
 func (p *Params) Trim(key string, def ...string) string {
 	s := str.Trim(p.src[key])
 	if len(s) == 0 && len(def) > 0 {
