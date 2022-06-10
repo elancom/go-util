@@ -1,6 +1,8 @@
 package collection
 
-import "errors"
+import (
+	"errors"
+)
 
 var NotFound = errors.New("not found")
 
@@ -11,4 +13,14 @@ func Find[T any](slice []T, def T, predicate func(T) bool) (T, error) {
 		}
 	}
 	return def, NotFound
+}
+
+func FindMapS2s(ps []string, gen func(idx int, it string) string) string {
+	for idx, it := range ps {
+		r := gen(idx, it)
+		if r != "" {
+			return r
+		}
+	}
+	return ""
 }
