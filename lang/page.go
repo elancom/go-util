@@ -140,9 +140,9 @@ type Flag struct {
 	// IsV2      bool
 }
 
-func NewQueryRs(data any, count any, summary ...any) *QueryRs {
+func NewQueryRs(list any, count any, summary ...any) *QueryRs {
 	q := new(QueryRs)
-	q.Data = data
+	q.List = list
 	q.Count = count
 	if len(summary) > 0 {
 		q.Summary = summary[0]
@@ -151,7 +151,7 @@ func NewQueryRs(data any, count any, summary ...any) *QueryRs {
 }
 
 type QueryRs struct {
-	Data    any `json:"data,omitempty"`
+	List    any `json:"data,omitempty"`
 	Count   any `json:"count,omitempty"`
 	Summary any `json:"summary,omitempty"`
 }
