@@ -151,7 +151,7 @@ func NewQueryRs(list any, count any, summary ...any) *QueryRs {
 }
 
 type QueryRs struct {
-	List    any `json:"data,omitempty"`
+	List    any `json:"list,omitempty"`
 	Count   any `json:"count,omitempty"`
 	Summary any `json:"summary,omitempty"`
 }
