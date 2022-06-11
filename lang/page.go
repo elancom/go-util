@@ -139,3 +139,19 @@ type Flag struct {
 	// IsV1      bool
 	// IsV2      bool
 }
+
+func NewQueryRs(list []any, count int64, summary ...any) *QueryRs {
+	q := new(QueryRs)
+	q.List = list
+	q.Count = count
+	if len(summary) > 0 {
+		q.Summary = summary[0]
+	}
+	return q
+}
+
+type QueryRs struct {
+	List    []any `json:"list,omitempty"`
+	Count   int64 `json:"count,omitempty"`
+	Summary any   `json:"summary,omitempty"`
+}
