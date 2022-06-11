@@ -151,7 +151,7 @@ func NewQueryRs(data any, count int64, summary ...any) *QueryRs {
 }
 
 type QueryRs struct {
-	Data    any   `json:"data,omitempty"`
-	Count   int64 `json:"count,omitempty"`
-	Summary any   `json:"summary,omitempty"`
+	Data    any `json:"data,omitempty"`
+	Count   any `json:"count,omitempty"`
+	Summary any `json:"summary,omitempty"`
 }
