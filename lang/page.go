@@ -98,6 +98,14 @@ func (p *Page) GetFirst() int {
 	return p.GetPageIndex() * p.GetRows()
 }
 
+func (p *Page) Clone() *Page {
+	p2 := new(Page)
+	p2.page = p.page
+	p2.rows = p.rows
+	p2.maxRows = p.maxRows
+	return p2
+}
+
 func (p *Page) MarshalJSON() ([]byte, error) {
 	return json.Marshal(map[string]any{
 		"page":  p.GetPage(),
