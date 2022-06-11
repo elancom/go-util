@@ -105,3 +105,11 @@ func (p *Page) MarshalJSON() ([]byte, error) {
 		"first": p.GetFirst(),
 	})
 }
+
+type Flag struct {
+	IsList    bool
+	IsCount   bool
+	IsSummary bool
+	// IsV1      bool
+	// IsV2      bool
+}
