@@ -106,6 +106,24 @@ func (p *Page) MarshalJSON() ([]byte, error) {
 	})
 }
 
+func NewFlagList() *Flag {
+	f := new(Flag)
+	f.IsList = true
+	return f
+}
+
+func NewFlagCount() *Flag {
+	f := new(Flag)
+	f.IsCount = true
+	return f
+}
+
+func NewFlagSummary() *Flag {
+	f := new(Flag)
+	f.IsSummary = true
+	return f
+}
+
 type Flag struct {
 	IsList    bool
 	IsCount   bool
