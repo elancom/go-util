@@ -9,5 +9,8 @@ import (
 func TestGetNow(t *testing.T) {
 	now := GetNow()
 	log.Println(now)
-	log.Println(time.Now().Format("2006-01-02 15:04:05"))
+	t2 := time.Now()
+	log.Println(FormatDate(&t2))
+	log.Println(FormatTime(&t2))
+	log.Println(FormatDateTime(&t2))
 }
