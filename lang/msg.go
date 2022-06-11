@@ -30,7 +30,7 @@ func NewFrom(d map[string]any) *Msg {
 	return NewMsg(code, msg0, data)
 }
 
-func CastFromErr(err error) (*Msg, error) {
+func CastMsgToErr(err error) (*Msg, error) {
 	msg, ok := err.(*Msg)
 	if !ok {
 		return nil, err
