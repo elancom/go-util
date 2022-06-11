@@ -6,7 +6,7 @@ import "encoding/json"
 const defaultPage = 1
 
 // 默认页大小
-const defaultRows = 30
+const defaultRows = 10
 
 type Page struct {
 	page    int
