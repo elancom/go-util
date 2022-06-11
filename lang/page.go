@@ -140,7 +140,7 @@ type Flag struct {
 	// IsV2      bool
 }
 
-func NewQueryRs(data any, count int64, summary ...any) *QueryRs {
+func NewQueryRs(data any, count any, summary ...any) *QueryRs {
 	q := new(QueryRs)
 	q.Data = data
 	q.Count = count
