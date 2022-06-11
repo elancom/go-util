@@ -3,17 +3,6 @@ package lang
 const OK = 200
 const Err = 400
 
-// Msg 一等结构，安全输出
-type Msg struct {
-	Code int    `json:"code"`
-	Msg  string `json:"msg,omitempty"`
-	Data any    `json:"data,omitempty"`
-}
-
-func (m *Msg) Error() string {
-	return m.Msg
-}
-
 func NewOk(data ...any) *Msg {
 	d := any(nil)
 	if len(data) > 0 {
@@ -39,6 +28,25 @@ func NewFrom(d map[string]any) *Msg {
 	msg0 := d["msg"].(string)
 	data := d["data"]
 	return NewMsg(code, msg0, data)
+}
+
+func CastFromErr(err error) (*Msg, error) {
+	msg, ok := err.(*Msg)
+	if !ok {
+		return nil, err
+	}
+	return msg, nil
+}
+
+// Msg 一等结构，安全输出
+type Msg struct {
+	Code int    `json:"code"`
+	Msg  string `json:"msg,omitempty"`
+	Data any    `json:"data,omitempty"`
+}
+
+func (m *Msg) Error() string {
+	return m.Msg
 }
 
 func (m *Msg) IsOk() bool {
