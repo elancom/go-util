@@ -12,12 +12,12 @@ import (
 
 func TestName(t *testing.T) {
 	bytes := []byte("1234567890123456")
-	encrypt, err := ECBEncrypt([]byte("123456"), bytes)
+	encrypt, err := AesEcbEncrypt([]byte("123456"), bytes)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println(base64.StdEncoding.EncodeToString(encrypt))
-	decrypt, _ := ECBDecrypt(encrypt, bytes)
+	decrypt, _ := AesEcbDecrypt(encrypt, bytes)
 	fmt.Println(string(decrypt))
 }
 
@@ -36,12 +36,12 @@ func TestName2(t *testing.T) {
 	bytes = []byte{49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	b := byte(int(' '))
 	bytes = []byte{49, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b}
-	encrypt, err := ECBEncrypt(marshal, bytes)
+	encrypt, err := AesEcbEncrypt(marshal, bytes)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println(base64.StdEncoding.EncodeToString(encrypt))
-	decrypt, _ := ECBDecrypt(encrypt, bytes)
+	decrypt, _ := AesEcbDecrypt(encrypt, bytes)
 	fmt.Println(string(decrypt))
 }
 
@@ -53,7 +53,7 @@ func TestName3(t *testing.T) {
 	}
 	for i := 0; i < 100; i++ {
 		key := Md6("login-password-key:1:11" + rand.RandomStr(10))
-		decrypt, _ := ECBDecrypt(decodeString, []byte(key))
+		decrypt, _ := AesEcbDecrypt(decodeString, []byte(key))
 		log.Println(string(decrypt))
 	}
 }

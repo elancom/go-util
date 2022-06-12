@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func ECBEncrypt(src, key []byte) ([]byte, error) {
+func AesEcbEncrypt(src, key []byte) ([]byte, error) {
 	if !validKey(key) {
 		return nil, fmt.Errorf("秘钥长度错误, 当前传入长度为 %d", len(key))
 	}
@@ -30,7 +30,7 @@ func ECBEncrypt(src, key []byte) ([]byte, error) {
 	return dst, nil
 }
 
-func ECBDecrypt(encrypted, key []byte) ([]byte, error) {
+func AesEcbDecrypt(encrypted, key []byte) ([]byte, error) {
 	if !validKey(key) {
 		return nil, fmt.Errorf("秘钥长度错误,当前传入长度为 %d", len(key))
 	}
