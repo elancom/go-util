@@ -59,5 +59,9 @@ func TestName3(t *testing.T) {
 }
 
 func TestName4(t *testing.T) {
-
+	d := "W1H8n/iQ0QBCSCFqdHDgJ4dC95ggbLeK2a05ErWoNpvimjSLRc3eLRukitCNozgwZviYSgEl1jpYktvUW0tCKGxVxoWUIh0aPiqnZOZ/UjNg5coyfI6mzmfIlUKI/z4uXhk66Ug4ynF2CGGqzsBcD4OG/6e81yK0iRPYHSxTiMjzAoiRBhjddac9YS9W52XN"
+	decodeString, _ := base64.StdEncoding.DecodeString(d)
+	decrypt, err := AesEcbDecrypt(decodeString, []byte("hrKXKV7zxXXLetBdzaShQGvtycM0euyn"))
+	log.Println(err)
+	log.Println(string(decrypt))
 }
