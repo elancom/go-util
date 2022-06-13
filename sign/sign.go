@@ -1,15 +1,14 @@
 package sign
 
 import (
-	"crypto/md5"
-	"fmt"
 	"github.com/elancom/go-util/collection"
+	"github.com/elancom/go-util/crypto"
 	"github.com/elancom/go-util/str"
 	"sort"
 	"strings"
 )
 
-func Sign(key string, data map[string]string) string {
+func Sign(data map[string]string, key string) string {
 	data = collection.Clone(data)
 
 	// 移除关键字
@@ -37,17 +36,16 @@ func Sign(key string, data map[string]string) string {
 		b.WriteString("=")
 		b.WriteString(data[k])
 	}
-
-	// 连接秘钥
-	b.WriteString("&key=")
-	b.WriteString(key)
 	s := b.String()
 
 	// 摘要
-	sum := md5.Sum([]byte(s))
-	sum16 := fmt.Sprintf("%x", sum)
+	return Str(s, key)
+}
 
-	return str.ToUpper(sum16)
+func Str(data string, key string) string {
+	bs := []byte(data + "&key=" + key)
+	sign := crypto.Md6b(bs)
+	return sign
 }
 
 func Check(key string, data map[string]string, signs ...string) bool {
@@ -57,5 +55,9 @@ func Check(key string, data map[string]string, signs ...string) bool {
 	} else {
 		signStr = signs[0]
 	}
-	return signStr != "" && signStr == Sign(key, data)
+	return signStr != "" && signStr == Sign(data, key)
+}
+
+func CheckStr(data string, key string, sign string) bool {
+	return Str(data, key) == sign
 }

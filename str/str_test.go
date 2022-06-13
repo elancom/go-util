@@ -20,3 +20,7 @@ func TestReplace(t *testing.T) {
 	log.Println(Replace(s, "bb", "xx", 2))
 	log.Println(Replace(s, "", "xx", 10))
 }
+
+func TestEqualFold(t *testing.T) {
+	log.Println(EqualFold("AAA", "aaA"))
+}
