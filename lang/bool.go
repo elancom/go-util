@@ -25,5 +25,5 @@ func IsTrue(b *bool) bool {
 
 // IsFalse nil or false
 func IsFalse(b *bool) bool {
-	return b != nil && *b
+	return !IsTrue(b)
 }
