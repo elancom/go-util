@@ -22,7 +22,7 @@ func TrimUint8(b []byte, cut uint8) []byte {
 	b2 := b[len(b)-1] == cut
 	if b1 {
 		if b2 {
-			return b[1:uint8(math.Max(1, len(b)-1))]
+			return b[1:math.Max(1, len(b)-1)]
 		}
 		return b[1:]
 	} else if b2 {
