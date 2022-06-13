@@ -17,3 +17,13 @@ func GetBool(b bool) *bool {
 	}
 	return &v
 }
+
+// IsTrue no nil && true
+func IsTrue(b *bool) bool {
+	return b != nil && *b
+}
+
+// IsFalse nil or false
+func IsFalse(b *bool) bool {
+	return b != nil && *b
+}
