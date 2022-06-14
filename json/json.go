@@ -8,15 +8,15 @@ import (
 func ToJson(v any) (string, error) {
 	marshal, err := json.Marshal(v)
 	if err != nil {
-		return "", lang.NewErr("json convert err")
+		return "", lang.NewErr("json deserialize err")
 	}
 	return string(marshal), nil
 }
 
-func ToObj(s string, v any) error {
+func ToObj[T any](s string, v T) (T, error) {
 	err := json.Unmarshal([]byte(s), v)
 	if err != nil {
-		return lang.NewErr("json convert err")
+		return nil, lang.NewErr("json serialize err")
 	}
-	return nil
+	return v, nil
 }
