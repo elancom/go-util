@@ -16,7 +16,7 @@ func ToJson(v any) (string, error) {
 func ToObj[T any](s string, v T) (T, error) {
 	err := json.Unmarshal([]byte(s), v)
 	if err != nil {
-		return nil, lang.NewErr("json serialize err")
+		return v, lang.NewErr("json serialize err")
 	}
 	return v, nil
 }
