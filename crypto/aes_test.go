@@ -65,3 +65,10 @@ func TestName4(t *testing.T) {
 	log.Println(err)
 	log.Println(string(decrypt))
 }
+
+func TestName5(t *testing.T) {
+	s, _ := AesEcbEncrypt([]byte("123457"), []byte("1234567890123456"))
+	log.Println(base64.StdEncoding.EncodeToString(s))
+	s, _ = AesEcbEncrypt([]byte("123456"), []byte("1234567890123456"))
+	log.Println(base64.StdEncoding.EncodeToString(s))
+}
