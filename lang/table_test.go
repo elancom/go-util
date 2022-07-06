@@ -12,5 +12,7 @@ func TestTable(t *testing.T) {
 	ss = append(ss, "1")
 	ss = append(ss, "1")
 	table := NewTable(ss, int64(len(ss)))
-	log.Println(table)
+	ss = ss[:len(ss)-1]
+	log.Println(len(table.List))
+	log.Println(len(ss))
 }
