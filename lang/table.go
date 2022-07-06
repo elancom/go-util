@@ -1,11 +1,11 @@
 package lang
 
 type Table[T any] struct {
-	List  []T
+	List  *[]T
 	Total int64
 }
 
-func NewTable[T any](list []T, total int64) *Table[T] {
+func NewTable[T any](list *[]T, total int64) *Table[T] {
 	t := new(Table[T])
 	t.List = list
 	t.Total = total
