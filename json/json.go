@@ -3,6 +3,7 @@ package json
 import (
 	"encoding/json"
 	"github.com/elancom/go-util/lang"
+	"log"
 )
 
 func ToJson(v any) (string, error) {
@@ -14,7 +15,11 @@ func ToJson(v any) (string, error) {
 }
 
 func ToJsonStr(v any) string {
-	marshal, _ := json.Marshal(v)
+	marshal, err := json.Marshal(v)
+	if err != nil {
+		log.Println("json deserialize err")
+		return ""
+	}
 	return string(marshal)
 }
 
