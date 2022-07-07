@@ -13,6 +13,11 @@ func ToJson(v any) (string, error) {
 	return string(marshal), nil
 }
 
+func ToJsonStr(v any) string {
+	marshal, _ := json.Marshal(v)
+	return string(marshal)
+}
+
 func ToObj[T any](s string, v T) (T, error) {
 	err := json.Unmarshal([]byte(s), v)
 	if err != nil {
