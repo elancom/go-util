@@ -32,10 +32,11 @@ func Get(url string, data ...map[string]string) *lang.Msg {
 		bs := bytes.NewBufferString(url)
 		bs.WriteString("?")
 		for k, v := range data[0] {
-			bs.WriteString(k)
+			bs.WriteString(url2.QueryEscape(k))
 			bs.WriteString("=")
-			bs.WriteString(v)
+			bs.WriteString(url2.QueryEscape(v))
 		}
+		url = bs.String()
 	}
 	resp, err := http.Get(url)
 	if err != nil {

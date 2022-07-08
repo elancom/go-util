@@ -7,7 +7,7 @@ import (
 )
 
 func TestGet(t *testing.T) {
-	get := Get("https://baidu.com")
+	get := Get("https://baidu.com", map[string]string{"id": "123"})
 	log.Println(get.Data)
 }
 
