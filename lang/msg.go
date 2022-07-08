@@ -24,9 +24,21 @@ func NewMsg(code int, msg string, data ...any) *Msg {
 }
 
 func NewFrom(d map[string]any) *Msg {
-	code := d["code"].(int)
-	msg0 := d["msg"].(string)
+	code := 0
+	if c, ok := d["code"].(int); ok {
+		code = c
+	} else if c1, ok1 := d["code"].(float64); ok1 {
+		code = int(c1)
+	} else {
+		return NewErr("msg code required int type")
+	}
+	var msg0 string
+	if m, ok := d["msg"].(string); ok {
+		msg0 = m
+	}
+
 	data := d["data"]
+
 	return NewMsg(code, msg0, data)
 }
 
