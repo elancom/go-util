@@ -12,9 +12,9 @@ func TestGet(t *testing.T) {
 }
 
 func TestPost(t *testing.T) {
-	marshal, _ := json.Marshal(Post("http://120.79.214.77:10020/prod-api/login/login", map[string]string{"username": ""}))
+	marshal, _ := json.Marshal(Post("http://120.79.214.77:10020/prod-api/login/login", map[string]any{"username": ""}))
 	log.Println(string(marshal))
-	msg := PostMsg("http://120.79.214.77:10020/prod-api/login/login", map[string]string{"username": ""})
+	msg := PostMsg("http://120.79.214.77:10020/prod-api/login/login", map[string]any{"username": ""})
 	bytes, _ := json.Marshal(msg)
 	log.Println(string(bytes))
 }

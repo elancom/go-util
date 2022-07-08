@@ -51,7 +51,7 @@ func Get(url string, data ...map[string]string) *lang.Msg {
 	return lang.NewOk(string(bs))
 }
 
-func PostMsg(url string, data ...map[string]string) *lang.Msg {
+func PostMsg(url string, data ...map[string]any) *lang.Msg {
 	post := Post(url, data...)
 	if post.IsErr() {
 		return post
@@ -59,9 +59,9 @@ func PostMsg(url string, data ...map[string]string) *lang.Msg {
 	return toMsg(post.Data.(string))
 }
 
-func Post(url string, data ...map[string]string) *lang.Msg {
+func Post(url string, data ...map[string]any) *lang.Msg {
 	if len(data) == 0 {
-		data = append(data, make(map[string]string, 0))
+		data = append(data, make(map[string]any, 0))
 	}
 
 	jb, err := json.Marshal(data[0])
