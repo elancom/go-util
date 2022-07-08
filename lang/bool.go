@@ -28,13 +28,13 @@ func IsFalse(b *bool) bool {
 	return !IsTrue(b)
 }
 
-func ifs[T any](b bool, tv, fv T) T {
+func Ifs[T any](b bool, tv, fv T) T {
 	if b {
 		return tv
 	}
 	return fv
 }
 
-func ifn[T any](b bool, tv, fv T) T {
-	return ifs[T](!b, tv, fv)
+func Ifn[T any](b bool, tv, fv T) T {
+	return Ifs[T](!b, tv, fv)
 }
