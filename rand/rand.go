@@ -57,3 +57,7 @@ func random(s string, num int) string {
 	}
 	return string(rb)
 }
+
+func randomBool() bool {
+	return RandomIntRange(0, 2) == 0
+}

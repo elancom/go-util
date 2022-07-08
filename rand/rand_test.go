@@ -3,8 +3,21 @@ package rand
 import (
 	"crypto/rand"
 	"fmt"
+	"log"
 	"testing"
 )
+
+func Test1(t *testing.T) {
+	for i := 0; i < 10; i++ {
+		log.Println(RandomIntRange(0, 2))
+	}
+}
+
+func Test2(t *testing.T) {
+	for i := 0; i < 100; i++ {
+		log.Println(randomBool())
+	}
+}
 
 func TestSpec(t *testing.T) {
 	fmt.Println(RandomSpec("123456", 3))
