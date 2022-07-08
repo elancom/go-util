@@ -15,7 +15,7 @@ func Test1(t *testing.T) {
 
 func Test2(t *testing.T) {
 	for i := 0; i < 100; i++ {
-		log.Println(randomBool())
+		log.Println(RandomBool())
 	}
 }
 
