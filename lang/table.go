@@ -1,8 +1,8 @@
 package lang
 
 type Table[T any] struct {
-	List  []T
-	Total int64
+	List  []T   `json:"list"`
+	Total int64 `json:"total"`
 }
 
 func NewTable[T any](list []T, total int64) *Table[T] {
