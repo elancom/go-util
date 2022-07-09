@@ -14,3 +14,10 @@ func TestGetNow(t *testing.T) {
 	log.Println(FormatTime(&t2))
 	log.Println(FormatDateTime(&t2))
 }
+
+func Test1(t *testing.T) {
+	parse, err := ToDateTime("2022-07-09 18:16:07")
+	log.Println(err)
+	log.Println(parse)
+	log.Println(ToDateTimeWith(time.Now().UnixMilli()))
+}
