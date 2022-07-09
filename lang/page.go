@@ -8,6 +8,17 @@ const defaultPage = 1
 // 默认页大小
 const defaultRows = 10
 
+func NewPage() *Page {
+	return new(Page)
+}
+
+func NewPageWith(page int, rows int) *Page {
+	t := NewPage()
+	t.page = page
+	t.rows = rows
+	return t
+}
+
 type Page struct {
 	page    int
 	rows    int
