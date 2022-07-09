@@ -152,10 +152,10 @@ type Flag struct {
 	// IsV2      bool
 }
 
-func NewQueryRs(list any, count any, summary ...any) *QueryRs {
+func NewQueryRs(list any, total any, summary ...any) *QueryRs {
 	q := new(QueryRs)
 	q.List = list
-	q.Total = count
+	q.Total = total
 	if len(summary) > 0 {
 		q.Summary = summary[0]
 	}
