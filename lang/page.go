@@ -8,14 +8,15 @@ const defaultPage = 1
 // 默认页大小
 const defaultRows = 10
 
-func NewPage() *Page {
-	return new(Page)
-}
-
-func NewPageWith(page int, rows int) *Page {
-	t := NewPage()
-	t.page = page
-	t.rows = rows
+func NewPage(pageAndRows ...int) *Page {
+	t := new(Page)
+	pLen := len(pageAndRows)
+	if pLen > 0 {
+		t.page = pageAndRows[0]
+		if pLen > 1 {
+			t.rows = pageAndRows[1]
+		}
+	}
 	return t
 }
 

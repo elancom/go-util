@@ -20,4 +20,5 @@ func TestPage(t *testing.T) {
 	log.Println(string(marshal))
 	log.Println(p.GetPageIndex())
 	log.Println(p.GetFirst())
+	log.Println(*NewPage(2, 25))
 }
