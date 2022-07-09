@@ -155,7 +155,7 @@ type Flag struct {
 func NewQueryRs(list any, count any, summary ...any) *QueryRs {
 	q := new(QueryRs)
 	q.List = list
-	q.Count = count
+	q.Total = count
 	if len(summary) > 0 {
 		q.Summary = summary[0]
 	}
@@ -164,6 +164,6 @@ func NewQueryRs(list any, count any, summary ...any) *QueryRs {
 
 type QueryRs struct {
 	List    any `json:"list,omitempty"`
-	Count   any `json:"count,omitempty"`
+	Total   any `json:"total,omitempty"`
 	Summary any `json:"summary,omitempty"`
 }
