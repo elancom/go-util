@@ -47,7 +47,7 @@ func FormatTime(t *time.Time) string {
 }
 
 func ToDate(s string) (*time.Time, error) {
-	t, err := time.Parse(s, formatDate)
+	t, err := time.Parse(formatDate, s)
 	if err != nil {
 		return nil, err
 	}
