@@ -23,6 +23,15 @@ func ToJsonStr(v any) string {
 	return string(marshal)
 }
 
+func ToJsonStrIndent(v any) string {
+	marshal, err := json.MarshalIndent(v, "", "    ")
+	if err != nil {
+		log.Println("json deserialize err")
+		return ""
+	}
+	return string(marshal)
+}
+
 func ToObj[T any](s string, v T) (T, error) {
 	err := json.Unmarshal([]byte(s), v)
 	if err != nil {
