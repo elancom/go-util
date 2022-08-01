@@ -93,3 +93,11 @@ func Repeat(s string, count int) string {
 func Replace(s, old, new string, n int) string {
 	return strings.Replace(s, old, new, n)
 }
+
+func Contains(s, sub string) bool {
+	return strings.Contains(s, sub)
+}
+
+func ContainsAny(s, chars string) bool {
+	return strings.ContainsAny(s, chars)
+}

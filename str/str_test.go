@@ -33,3 +33,10 @@ func TestReplace(t *testing.T) {
 func TestEqualFold(t *testing.T) {
 	log.Println(EqualFold("AAA", "aaA"))
 }
+
+func TestContains(t *testing.T) {
+	log.Println(Contains("aaabbbccc", "bbb"))
+	log.Println(Contains("aaabbbccc", "bb"))
+	log.Println(Contains("aaabbbccc", "bbbb"))
+	log.Println(ContainsAny("aaabbbccc", "dc"))
+}
