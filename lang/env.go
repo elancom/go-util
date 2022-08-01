@@ -1,20 +1,19 @@
 package lang
 
-import "os"
-
 const Dev = "dev"
 const Prod = "prod"
 const Test = "test"
 
-var env = Dev
+var env = ""
 
-func SetEnv(env_ string) {
-	env = env_
+// SetEnv 由启动程序设置
+func SetEnv(name string) {
+	env = name
 }
 
 func GetEnv() string {
 	if env == "" {
-		env = os.Getenv("env")
+		return Dev
 	}
 	return env
 }
